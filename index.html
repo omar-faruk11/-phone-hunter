@@ -20,8 +20,7 @@
         <h2 class=" text-center mt-4 primary-color display-6 fw-bold">Phone Corner</h2>
         <!-- search option start -->
         <div class="input-group mb-3 w-75 mx-auto my-4">
-            <input id="searchFild" type="text" class="form-control" placeholder="Search Phone" aria-label="Search Phone"
-                aria-describedby="basic-addon2">
+            <input id="searchFild" type="text" class="form-control" placeholder="Search Phone">
             <div class="input-group-append">
                 <button onclick="getSearchResult()" class="btn text-white btn-bg-color" type="button">Search</button>
             </div>
@@ -29,7 +28,7 @@
         <!-- search option end  -->
         <!-- disply error  -->
         <div id="searchError" class=" d-none d-flex align-items-center justify-content-center flex-column mt-5">
-            <h3> Search No Phone </h3>
+            <h3>No Phone Found</h3>
             <p class="">We're sorry. We cannot find any matches for your search term.</p>
         </div>
         <!--  looding  -->
@@ -42,7 +41,7 @@
             <div id="phoneDetails">
 
             </div>
-            <hr id="hrLine" class=" d-none w-50 opacity-50 primary-color mx-auto mt-4" >
+            <hr id="hrLine" class=" d-none w-50 opacity-50 primary-color mx-auto mt-4">
         </div>
         <!-- see details end -->
         <!-- seen search result start-->
@@ -57,4 +56,5 @@
     <!-- script link  -->
     <script src="script.js"></script>
 </body>
+
 </html>
