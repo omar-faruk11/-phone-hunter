@@ -9,9 +9,12 @@ body{
     
 }
 .primary-color{
-    color:#ec4899 ;
+    color:rgb(233, 81, 157) ;
 }
 .phone-size{
     height: 344px;
     width: 260px;
+}
+.icon-size{
+    font-size: 8px;
 }

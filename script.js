@@ -1,3 +1,4 @@
+
 const getSearchResult = () => {
     document.getElementById('searchError').classList.add('d-none');
     document.getElementById('phoneDetails').innerHTML = '';
@@ -14,24 +15,27 @@ const getSearchResult = () => {
         document.getElementById('phoneHeading').classList.add('d-none');
 
     } else {
+        // get api Response
         fetch(`https://openapi.programming-hero.com/api/phones?search=${search}`)
             .then(res => res.json())
             .then(data => setSearchResult(data.data))
     }
-}
+} 
+
+// setSearchResult 
 const setSearchResult = phones => {
     const phoneParentDiv = document.getElementById('addPhone');
     console.log(phones)
     const phoneTwenty = phones.slice(0,20);
     console.log(phoneTwenty)
-    if(phoneTwenty == '' ){
+    if(phones == '' ){
         document.getElementById('searchError').classList.remove('d-none');
         document.getElementById('loading').classList.add('d-none');
         document.getElementById('phoneDetailsHeading').classList.add('d-none');
         document.getElementById('phoneHeading').classList.add('d-none');
         
     }
-     
+    // display phone 
     phoneTwenty?.forEach(phone => {
         document.getElementById('phoneDetailsHeading').classList.add('d-none')
         document.getElementById('phoneHeading').classList.remove('d-none');
@@ -58,16 +62,16 @@ const setSearchResult = phones => {
         document.getElementById('loading').classList.add('d-none');
     });
 };
-
+// get phone by using di 
 const seeDetails = phoneId => {
     console.log(phoneId)
     fetch(`https://openapi.programming-hero.com/api/phone/${phoneId}`)
         .then(res => res.json())
         .then(data => phoneDetails(data.data));
 }
-
+// display phone details 
 const phoneDetails = details => {
-    console.log(details.others)
+    console.log(details.mainFeatures.sensors[0])
     document.getElementById('phoneDetailsHeading').classList.remove('d-none')
     const detailsParentDiv = document.getElementById('phoneDetails');
     const detailsDiv = document.createElement('div');
@@ -78,19 +82,27 @@ const phoneDetails = details => {
      </div>
         <div class="col-md-6">
             <div class="card-body">
-                <h4 class="card-title mb-0"> ${details.name}</h4>
+                <h4 class="card-title mb-0 fw-bold"> ${details.name}</h4>
                 <p class="primary-color mb-2">${details.releaseDate ? details.releaseDate:'No release day found'}</p>
-                <h6 >Details:</h6>
+                <h5 class=" fw-bold" >Main Features:</h5>
                 <p class="card-text mb-1"> <span class=" fw-bold">storage:</span> ${details.mainFeatures.storage}</p>
-                <p class="card-text mb-1"> <span class=" fw-bold">displaySize:</span>  ${details.mainFeatures.displaySize}</p>
-                <p class="card-text mb-1"> <span class=" fw-bold">chipSet:</span>  ${details.mainFeatures.chipSet}</p>
+                <p class="card-text mb-1"> <span class=" fw-bold">display Size:</span>  ${details.mainFeatures.displaySize}</p>
+                <p class="card-text mb-1"> <span class=" fw-bold">chip Set:</span>  ${details.mainFeatures.chipSet}</p>
                 <p class="card-text mb-1"> <span class=" fw-bold">memory:</span>  ${details.mainFeatures.memory}</p>
-                
+                <p class="fw-bold mb-0">sensors: </p>
+                <ul class="ps-0 list-inline mb-0">
+                    <li class=" list-inline-item"> <span class=""><i class="fa-solid fa-circle icon-size primary-color"></span></i> ${details.mainFeatures.sensors[0]}</li>
+                    <li class=" list-inline-item"> <span class=""><i class="fa-solid fa-circle icon-size primary-color"></span></i> ${details.mainFeatures.sensors[1]}</li>
+                    <li class=" list-inline-item"> <span class=""><i class="fa-solid fa-circle icon-size primary-color"></span></i> ${details.mainFeatures.sensors[2]}</li>.
+                    <li class=" list-inline-item"> <span class=""><i class="fa-solid fa-circle icon-size primary-color"></span></i> ${details.mainFeatures.sensors[3]}</li>
+                    <li class=" list-inline-item"> <span class=""><i class="fa-solid fa-circle icon-size primary-color"></span></i> ${details.mainFeatures.sensors[4]}</li>
+                    <li class=" list-inline-item"> <span class=""><i class="fa-solid fa-circle icon-size primary-color"></span></i> ${details.mainFeatures.sensors[5]}</li>
+                </ul>
             </div>
         </div>
             <div class="col-md-4">
                 <div class=" card-body">
-                    <h6 >others:</h6>
+                    <h5 class=" fw-bold" >others:</h5>
                         <p class="card-text mb-1"> <span class=" fw-bold">WLAN:</span> ${details.others ?.WLAN ? details.others.WLAN:""}</p>
                         <p class="card-text mb-1"> <span class=" fw-bold">Bluetooth:</span>  ${details.others ?.Bluetooth ? details.others.Bluetooth:""}</p>
                         <p class="card-text mb-1"> <span class=" fw-bold">GPS:</span>  ${details.others ?.GPS ? details.others.GPS:""}</p>
@@ -104,9 +116,8 @@ const phoneDetails = details => {
     document.getElementById('hrLine').classList.remove('d-none')
 }
 
-
-
-
+                        
+                       
 // document.getElementById('phoneDetails').innerHTML = '';
 // document.getElementById('addPhone').innerHTML = '';
 // document.getElementById('searchError').classList.remove('d-none');
