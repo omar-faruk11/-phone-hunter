@@ -1,7 +1,17 @@
+/* google font  */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap');
+body{
+    font-family: 'Oswald', sans-serif;
+}
+
 .btn-bg-color{
     background-color:rgb(236 72 153);
     
 }
 .primary-color{
     color:#ec4899 ;
+}
+.phone-size{
+    height: 344px;
+    width: 260px;
 }
