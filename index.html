@@ -11,9 +11,13 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!--My css link  -->
     <link rel="stylesheet" href="style.css">
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style="font-family: 'Oswald', sans-serif;">
     <section class=" container">
         <h2 class=" text-center mt-4 primary-color">Phone Corner</h2>
         <!-- search option start -->
@@ -25,14 +29,26 @@
             </div>
         </div>
         <!-- search option end  -->
+        <!-- disply error  -->
+        <div id="searchError" class=" d-none d-flex justify-content-center align-items-center flex-column mt-5">
+            <h3 class=" justify-content-center"> Search No Phone </h3>
+                <p class="">We're sorry. We cannot find any matches for your search term.</p>
+        </div>
+        <!--  looding  -->
+        <div id="loading" class=" d-flex justify-content-center align-items-center d-none">
+            <img src="images/loading.gif" class=" img-fluid w-50 mx-auto" alt="">
+        </div>
         <!-- see details start  -->
         <div id="phoneDetails">
-            
+
         </div>
         <!-- see details end -->
         <!-- seen search result start-->
-        <div id="addPhone" class="row row-cols-1 row-cols-md-3 g-4">
+        <div>
+            <h2 id="phoneHading" class="d-none text-center primary-color my-3"> Phones</h2>
+            <div id="addPhone" class="row row-cols-1 row-cols-md-3 g-4 mt-5">
 
+            </div>
         </div>
         <!-- seen search result end-->
     </section>
